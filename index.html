@@ -18,7 +18,7 @@
 <meta property="og:description" content="A página do teu negócio, pronta em 7 dias, ligada directamente ao teu WhatsApp.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' rx='16' fill='%232563eb'/%3E%3Cpath d='M 28 30 L 18 40 L 28 50 M 52 30 L 62 40 L 52 50 M 44 25 L 36 55' stroke='white' stroke-width='6' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="three.min.js"></script>
 
 <style>
   :root {
@@ -494,7 +494,7 @@
     </svg>
   </div>
   <div class="wrap-estreito">
-    <h2>Nossos serviços</h2>
+    <h2>O que faço</h2>
     <div class="grelha-servicos">
 
       <div class="servico-card reveal">
@@ -547,7 +547,7 @@
       <div class="rotulo-prova">CLIENTE ACTUAL</div>
       <h3>Jeckson Barbeiro Sorriso — Macuti, Beira</h3>
       <p>Página com tabela de preços, galeria de trabalhos e botão directo de agendamento no WhatsApp. Publicada em menos de 7 dias, sem custo de alojamento.</p>
-      <a class="ver-site" href="https://yuridigitalmz.github.io/BarbeariaJackson/">Ver o site →</a>
+      <a class="ver-site" href="https://yuriantoniovasco7-cmd.github.io/BarbeariaJackson/">Ver o site →</a>
     </div>
   </div>
 </section>
@@ -648,6 +648,16 @@
         <div class="rotulo-prova">EXEMPLO ILUSTRATIVO</div>
         <p>Um logótipo simples, feito para caber bem numa página web, num catálogo do WhatsApp e numa placa impressa.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="catalogo">
+  <div class="wrap-estreito">
+    <h2>Meus Serviços</h2>
+    <div class="catalogo-caixa reveal">
+      <p>Vê os meus serviços e preços organizados dentro do WhatsApp — é exactamente o catálogo que preparo para cada negócio.</p>
+      <a class="cta-secundaria" href="https://wa.me/c/258860640555">Abrir catálogo de exemplo</a>
     </div>
   </div>
 </section>
@@ -932,6 +942,28 @@
       window.open(link.href, '_blank');
     });
   });
+})();
+
+// ---------- Medir o que realmente converte (Google Analytics) ----------
+(function medirConversoes() {
+  function registar(nome, detalhe) {
+    if (typeof gtag === 'function') {
+      gtag('event', nome, { evento_detalhe: detalhe || '' });
+    }
+  }
+
+  document.querySelectorAll('a[href^="https://wa.me"]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      registar('clique_whatsapp', link.className || link.href);
+    });
+  });
+
+  var formPedidoRastreio = document.getElementById('form-pedido');
+  if (formPedidoRastreio) {
+    formPedidoRastreio.addEventListener('submit', function () {
+      registar('formulario_pedido_enviado');
+    });
+  }
 })();
 </script>
 
