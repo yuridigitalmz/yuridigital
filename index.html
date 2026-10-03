@@ -12,13 +12,39 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yuri Digital — Páginas & Soluções Web</title>
-<meta name="description" content="A página do teu negócio, pronta em 7 dias, ligada directamente ao teu WhatsApp. Sem custos mensais de alojamento.">
+<title>Yuri Digital — Páginas & Soluções Web | Beira</title>
+<meta name="description" content="A página do teu negócio, pronta em 7 dias, ligada directamente ao teu WhatsApp. Sem custos mensais de alojamento. Beira, Moçambique.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://yuridigitalmz.github.io/yuridigital/">
 <meta property="og:title" content="Yuri Digital — Páginas & Soluções Web">
 <meta property="og:description" content="A página do teu negócio, pronta em 7 dias, ligada directamente ao teu WhatsApp.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://yuridigitalmz.github.io/yuridigital/">
+<meta property="og:locale" content="pt_MZ">
+<meta property="og:image" content="https://yuridigitalmz.github.io/yuridigital/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Yuri Digital — Páginas & Soluções Web">
+<meta name="twitter:description" content="A página do teu negócio, pronta em 7 dias, ligada directamente ao teu WhatsApp.">
+<meta name="twitter:image" content="https://yuridigitalmz.github.io/yuridigital/og-image.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' rx='16' fill='%232563eb'/%3E%3Cpath d='M 28 30 L 18 40 L 28 50 M 52 30 L 62 40 L 52 50 M 44 25 L 36 55' stroke='white' stroke-width='6' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
-<script src="three.min.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Yuri Digital",
+  "description": "Criação de páginas web, logótipos e catálogos de WhatsApp para pequenos negócios.",
+  "url": "https://yuridigitalmz.github.io/yuridigital/",
+  "telephone": "+258860640555",
+  "priceRange": "1250-5000 MT",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Beira",
+    "addressCountry": "MZ"
+  }
+}
+</script>
 
 <style>
   :root {
@@ -131,6 +157,10 @@
   /* ---------- Cabeçalho ---------- */
   header { position: sticky; top: 0; z-index: 20; background: var(--marinho); }
   header .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .nav-links { display: none; gap: 22px; }
+  .nav-links a { font-size: 0.88rem; color: #cbd5e1; text-decoration: none; white-space: nowrap; }
+  .nav-links a:hover { color: #fff; }
+  @media (min-width: 700px) { .nav-links { display: flex; } }
   .nav-grupo { display: flex; align-items: center; gap: 14px; }
   .nav-pedido {
     font-weight: 600; font-size: 0.82rem; color: #cbd5e1; text-decoration: none;
@@ -183,6 +213,8 @@
     margin-top: 18px; font-size: 1.08rem; color: #cbd5e1; max-width: 42ch;
   }
   .hero-cta-linha { display: flex; align-items: center; gap: 16px; margin-top: 28px; flex-wrap: wrap; }
+  .link-whatsapp-directo { font-size: 0.88rem; color: var(--ciano); text-decoration: underline; text-underline-offset: 2px; }
+  .link-whatsapp-directo:hover { color: #fff; }
   .hero .cta {
     display: inline-block; padding: 15px 26px;
     background: var(--whatsapp); color: #06280f;
@@ -190,7 +222,7 @@
     transition: transform 0.12s ease, box-shadow 0.12s ease;
   }
   .hero .cta:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(37,99,235,0.3); }
-  .hero .resposta { font-size: 0.85rem; color: #64748b; }
+  .hero .resposta { font-size: 0.85rem; color: #64748b; display: block; margin-top: 12px; }
 
   /* ---------- Mockup de telemóvel com conversa no WhatsApp ---------- */
   .telefone-caixa { display: flex; justify-content: center; animation: subir 0.6s 0.1s ease both; }
@@ -214,7 +246,7 @@
   .balao.recebida { background: #ffffff; color: #1e293b; align-self: flex-start; border-bottom-left-radius: 3px; }
   .balao.enviada { background: #d9fdd3; color: #0b2b17; align-self: flex-end; border-bottom-right-radius: 3px; }
 
-  /* ---------- Selo 3D do logótipo, no topo do herói ---------- */
+  /* ---------- Selo do logótipo, no topo do herói (SVG leve, sem WebGL) ---------- */
   .logo3d-zona { display: flex; justify-content: center; padding-top: 8px; margin-bottom: 8px; }
   .logo3d-badge {
     position: relative; width: 176px; height: 176px;
@@ -224,9 +256,15 @@
     background: linear-gradient(135deg, #2563eb, #0ea5e9);
     box-shadow: 0 30px 60px -10px rgba(37,99,235,0.55), 0 0 0 1px rgba(255,255,255,0.06) inset;
     animation: flutuarBadge 5s ease-in-out infinite;
+    display: flex; align-items: center; justify-content: center;
+    perspective: 600px;
   }
   @keyframes flutuarBadge { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-  .logo3d-badge canvas { position: absolute; inset: 0; width: 100% !important; height: 100% !important; }
+  .logo3d-fundo svg { width: 62%; height: 62%; animation: balancarLeve 4.5s ease-in-out infinite; }
+  @keyframes balancarLeve {
+    0%, 100% { transform: rotateY(0deg); }
+    50%      { transform: rotateY(22deg); }
+  }
 
   .telefone .pagina-preview {
     margin: 4px 10px 0; background: #fff; border-radius: 8px; padding: 8px 10px;
@@ -273,6 +311,15 @@
     background: #fff; border: 1px solid var(--linha); border-radius: var(--raio);
     padding: 24px; max-width: 620px;
   }
+  .prova-com-foto { max-width: 720px; }
+  @media (min-width: 620px) {
+    .prova-com-foto { flex-direction: row; align-items: flex-start; gap: 24px; padding: 20px; }
+    .prova-com-foto .prova-screenshot { width: 180px; flex-shrink: 0; margin: 0; }
+  }
+  .prova-screenshot {
+    width: 100%; max-width: 260px; border-radius: 8px; border: 1px solid var(--linha);
+    display: block; margin: 0 auto;
+  }
   .prova .rotulo-prova { font-size: 0.82rem; color: var(--whatsapp); font-weight: 700; }
   .prova h3 { font-size: 1.15rem; color: var(--marinho); }
   .prova p { font-size: 0.95rem; color: var(--texto-suave); }
@@ -311,6 +358,8 @@
     background: #fff;
   }
   .pacote-essencial h3 { font-size: 1.1rem; color: var(--marinho); }
+  .subtitulo-precos { text-align: center; color: var(--texto-suave); font-size: 0.92rem; margin: -14px 0 22px; max-width: 46ch; margin-left: auto; margin-right: auto; }
+  .nota-pacote { font-size: 0.85rem; color: #cbd5e1; margin-bottom: 12px; }
   .pacote-essencial .preco { font-size: 1.4rem; font-weight: 800; margin: 10px 0; color: var(--marinho); }
 
   .pacote-completa {
@@ -453,6 +502,11 @@
       <span class="icone">&lt;/&gt;</span>
       <span class="nome">YURI <span>DIGITAL</span></span>
     </a>
+    <nav class="nav-links">
+      <a href="#servicos">Serviços</a>
+      <a href="#prova">Exemplo</a>
+      <a href="#pacotes">Pacotes</a>
+    </nav>
     <div class="nav-grupo">
       <a class="nav-contacto" href="#comecar"><span class="texto-curto">Pedido</span><span class="texto-longo">Pedido rápido</span></a>
     </div>
@@ -473,7 +527,11 @@
 
   <div class="logo3d-zona">
     <div class="logo3d-badge" id="logo3d-badge">
-      <div class="logo3d-fundo"></div>
+      <div class="logo3d-fundo">
+        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 28 30 L 18 40 L 28 50 M 52 30 L 62 40 L 52 50 M 44 25 L 36 55" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </div>
     </div>
   </div>
 
@@ -481,13 +539,14 @@
     <div class="hero-copy">
       <div class="etiqueta">Páginas & Soluções Web · Beira</div>
       <h1>A página do teu negócio, <span class="destaque">pronta em 7 dias</span></h1>
-      <p>Feita para telemóvel e ligada directamente ao teu WhatsApp, sem mensalidades de alojamento.</p>
+      <p>Feita para telemóvel e ligada directamente ao teu WhatsApp — sem mensalidades de alojamento.</p>
       <div class="hero-cta-linha">
         <a class="cta" href="#comecar">
           Quero a minha página
         </a>
-        <span class="resposta">Resposta em poucos minutos</span>
+        <a class="link-whatsapp-directo" href="https://wa.me/258860640555?text=Ol%C3%A1%2C%20vi%20a%20p%C3%A1gina%20Yuri%20Digital%20e%20quero%20saber%20mais">Ou fala já no WhatsApp</a>
       </div>
+      <span class="resposta">Respondo no mesmo dia</span>
     </div>
 
     <div class="telefone-caixa">
@@ -525,7 +584,7 @@
     </svg>
   </div>
   <div class="wrap-estreito">
-    <h2>Nossos Serviços</h2>
+    <h2>O que faço</h2>
     <div class="grelha-servicos">
 
       <div class="servico-card reveal">
@@ -573,22 +632,29 @@
 
 <section id="prova">
   <div class="wrap-estreito">
-    <h2>Nossos clientes</h2>
-    <div class="prova reveal">
-      <div class="rotulo-prova">CLIENTES ACTUAIS</div>
-      <h3>Jeckson Barbeiro Sorriso — Macuti, Beira</h3>
-      <p>Página com tabela de preços, galeria de trabalhos e botão directo de agendamento no WhatsApp. Sem custo de alojamento.</p>
-      <blockquote class="citacao-cliente">
-        "O processo foi rápido e prático. A promessa de entregar em 7 dias foi cumprida. Valeu pelo teu serviço 👌"
-        <cite>— Jeckson, Barbeiro Sorriso</cite>
-      </blockquote>
-      <a class="ver-site" href="https://yuridigitalmz.github.io/BarbeariaJackson/">Ver o site →</a>
-    <br>
-      <h3>Encantos Da Sementinha — Macuti, Beira</h3>
-      <p>Página com tabela de preços, galeria de trabalhos ja produzidos e botão directo de agendamento no WhatsApp. Sem custo de alojamento.</p>
-      <a class="ver-site" href="https://yuridigitalmz.github.io/EncantosDaSementinha/">Ver o site →</a>
+    <h2>Exemplos reais</h2>
+    <div class="prova prova-com-foto reveal" style="margin-top: 20px;">
+      <img class="prova-screenshot" src="prova-barbearia.jpeg" alt="Captura de ecrã real do site da Barbearia Sorriso, mostrando os preços e o botão de agendamento no WhatsApp">
+      <div class="prova-texto">
+        <div class="rotulo-prova">CLIENTE ACTUAL</div>
+        <h3>Jeckson Barbeiro Sorriso — Macuti, Beira</h3>
+        <p>Página com tabela de preços, galeria de trabalhos e botão directo de agendamento no WhatsApp. Publicada em menos de 7 dias, sem custo de alojamento.</p>
+        <blockquote class="citacao-cliente">
+          "O processo foi rápido e prático. A promessa de entregar em 7 dias foi cumprida. Valeu pelo teu serviço 👌"
+          <cite>— Jeckson, Barbeiro Sorriso</cite>
+        </blockquote>
+        <a class="ver-site" href="https://yuridigitalmz.github.io/BarbeariaJackson/">Ver o site →</a>
+      </div>
     </div>
 
+    <div class="prova prova-com-foto reveal" style="margin-top: 20px;">
+      <img class="prova-screenshot" src="prova-encantos.jpg" alt="Captura de ecrã real do site da Encantos Da Sementinha, mostrando os buquês e os preços">
+      <div class="prova-texto">
+        <div class="rotulo-prova">CLIENTE ACTUAL</div>
+        <h3>Encantos Da Sementinha — Macuti, Beira</h3>
+        <p>Buquês de rosas em cetim, chocolate e rosas naturais, com preços clicáveis que já abrem o WhatsApp com o pedido pronto.</p>
+        <a class="ver-site" href="https://yuridigitalmz.github.io/EncantosDaSementinha/">Ver o site →</a>
+      </div>
     </div>
   </div>
 </section>
@@ -629,7 +695,8 @@
     </svg>
   </div>
   <div class="wrap-estreito">
-    <h2>Pacotes em promoção</h2>
+    <h2>Pacotes</h2>
+    <p class="subtitulo-precos">O valor varia dentro da faixa conforme o número de secções e fotos que o teu negócio precisa — combinamos o preço exacto na conversa inicial.</p>
     <div class="grelha-pacotes">
       <div class="pacote-essencial reveal">
         <h3>Página Essencial</h3>
@@ -646,6 +713,7 @@
         <span class="selo">Mais escolhido</span>
         <h3>Página Completa</h3>
         <div class="preco">2.500 – 5.000 MT</div>
+        <p class="nota-pacote">Para negócios com vários serviços, muitas fotos, ou que preferem já ter ajustes incluídos depois da entrega.</p>
         <ul>
           <li>Tudo da Página Essencial</li>
           <li>Mais fotos dos teus produtos ou serviços</li>
@@ -677,14 +745,8 @@
     </div>
 
     <div class="exemplo-logo reveal" style="margin-top: 24px;">
-      <svg class="badge-svg" width="90" height="90" viewBox="0 0 90 90">
-        <circle cx="45" cy="45" r="42" fill="none" stroke="#0f172a" stroke-width="2"/>
-        <circle cx="45" cy="45" r="36" fill="none" stroke="#38bdf8" stroke-width="1"/>
-        <path d="M32 38 h20 v14 a10 10 0 0 1 -20 0 z" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round"/>
-        <path d="M52 42 h5 a5 5 0 0 1 0 10 h-5" fill="none" stroke="#2563eb" stroke-width="2.5"/>
-        <text x="45" y="68" text-anchor="middle" font-family="system-ui, sans-serif" font-size="6.5" font-weight="800" fill="#0f172a" letter-spacing="0.5">CAFÉ AROMA</text>
-        <text x="45" y="75" text-anchor="middle" font-family="system-ui, sans-serif" font-size="4.5" fill="#64748b" letter-spacing="1">BEIRA</text>
-      </svg>
+        <img class="prova-screenshot" src="logo-borda.png" alt="Captura de ecrã real do site da Barbearia Sorriso, mostrando os preços e o botão de agendamento no WhatsApp">
+     
       <div class="legenda">
         <div class="rotulo-prova">EXEMPLO ILUSTRATIVO</div>
         <p>Um logótipo simples, feito para caber bem numa página web, num catálogo do WhatsApp e numa placa impressa.</p>
@@ -695,7 +757,7 @@
 
 <section id="perguntas">
   <div class="wrap-estreito">
-    <h2>Perguntas</h2>
+    <h2>Perguntas frequentes</h2>
     <div class="lista-faq">
       <details class="item-faq">
         <summary>Preciso de pagar tudo adiantado?</summary>
@@ -703,7 +765,7 @@
       </details>
       <details class="item-faq">
         <summary>E se eu não gostar do resultado?</summary>
-        <p>As Página inclui uma pequena ronda de ajustes após a entrega (textos, preços, pequenos erros). A Página Completa inclui uma ronda de ajustes mais alargada.</p>
+        <p>A Página Essencial inclui uma pequena ronda de ajustes após a entrega (textos, preços, pequenos erros). A Página Completa inclui uma ronda de ajustes mais alargada.</p>
       </details>
       <details class="item-faq">
         <summary>Como posso pagar?</summary>
@@ -711,11 +773,11 @@
       </details>
       <details class="item-faq">
         <summary>Preciso de ter as fotos e textos todos prontos?</summary>
-        <p>Não. Na conversa inicial ajudo-te a organizar as sua ideas e o que já tens no telemóvel, não precisas de nada preparado de antemão.</p>
+        <p>Não. Na conversa inicial ajudo-te a organizar o que já tens no telemóvel — não precisas de nada preparado de antemão.</p>
       </details>
       <details class="item-faq">
         <summary>O site fica mesmo online de graça, para sempre?</summary>
-        <p>Sim, enquanto usares o alojamento gratuito (GitHub). Só há custo se um dia quiseres um domínio próprio (ex: ".co.mz"), o que é opcional.</p>
+        <p>Sim, enquanto usares o alojamento gratuito (Netlify ou GitHub Pages). Só há custo se um dia quiseres um domínio próprio (ex: ".co.mz"), o que é opcional.</p>
       </details>
     </div>
   </div>
@@ -754,17 +816,17 @@
         </svg>
         Enviar pelo WhatsApp
       </button>
-      <div class="form-nota">Ao enviar, o WhatsApp abre com a mensagem já pronta, só precisas de confirmar o envio.</div>
+      <div class="form-nota">Ao enviar, o WhatsApp abre com a mensagem já pronta — só precisas de confirmar o envio.</div>
     </form>
   </div>
 </section>
 
 <section id="contacto">
   <div class="wrap-estreito">
-    <h2>Não fique invisível no mercado. Fale comigo e tenha o seu site profissional!</h2>
+    <h2>Não fiques invisível no mercado. Fala comigo e tem o teu site profissional!</h2>
     <div class="contacto-lista">
-      <div><strong>WhatsApp:</strong> +258 86 064 0555</div>
-      <div><strong>Zona de atendimento:</strong> Beira, Moçambique arredores</div>
+      <div><strong>WhatsApp:</strong> <a href="https://wa.me/258860640555">+258 86 064 0555</a></div>
+      <div><strong>Zona de atendimento:</strong> Beira e arredores</div>
     </div>
     <a class="botao-cta-formulario" href="#comecar">Preencher formulário</a>
   </div>
@@ -774,7 +836,7 @@
   <div class="wrap-estreito">Yuri Digital · Páginas &amp; Soluções Web · Beira, Moçambique</div>
 </footer>
 
-<a class="whatsapp-fab" href="#comecar" aria-label="Preencher formulário de contacto">
+<a class="whatsapp-fab" href="https://wa.me/258860640555?text=Ol%C3%A1%2C%20vi%20a%20p%C3%A1gina%20Yuri%20Digital%20e%20quero%20saber%20mais" aria-label="Falar no WhatsApp">
   <svg viewBox="0 0 32 32" fill="#06280f" xmlns="http://www.w3.org/2000/svg">
     <path d="M16.02 3C9.37 3 3.98 8.39 3.98 15.04c0 2.24.61 4.34 1.67 6.15L4 29l8-1.6a12.97 12.97 0 0 0 4.02.64c6.65 0 12.04-5.39 12.04-12.04S22.67 3 16.02 3Zm0 21.86c-1.32 0-2.6-.26-3.78-.75l-.27-.12-4.75.95.96-4.63-.14-.28a9.83 9.83 0 0 1-1.48-5.19c0-5.46 4.44-9.9 9.9-9.9 2.64 0 5.13 1.03 6.99 2.9a9.83 9.83 0 0 1 2.9 6.99c0 5.46-4.44 9.9-9.9 9.9Zm5.42-7.41c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z"/>
   </svg>
@@ -858,7 +920,7 @@
         setTimeout(function () {
           var preview = document.createElement('div');
           preview.className = 'pagina-preview surgir';
-          preview.innerHTML = '<div class="quadrado"></div><div>pagina-do-teu-negocio.netlify.app</div>';
+          preview.innerHTML = '<div class="quadrado"></div><div>yuridigitalmz.github.io/negocio</div>';
           conversa.appendChild(preview);
         }, atraso + 200);
       }
@@ -880,84 +942,6 @@
     // scroll não a tiver activado a tempo.
     setTimeout(correrConversa, 2500);
   }
-
-  // ---------- Selo 3D do logótipo (Three.js) ----------
-  (function iniciarLogo3D() {
-    var container = document.getElementById('logo3d-badge');
-    if (!container || typeof THREE === 'undefined') return;
-    if (!window.WebGLRenderingContext) return;
-
-    var reduzirMovimento = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    var largura = container.clientWidth, altura = container.clientHeight;
-    var renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-    renderer.setSize(largura, altura);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-    container.appendChild(renderer.domElement);
-
-    var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(32, largura / altura, 0.1, 10);
-    camera.position.set(0, 0, 3.1);
-
-    scene.add(new THREE.AmbientLight(0xffffff, 0.55));
-    var luzAzul = new THREE.DirectionalLight(0x60a5fa, 1.1);
-    luzAzul.position.set(-2, 2, 3);
-    scene.add(luzAzul);
-    var luzCiano = new THREE.DirectionalLight(0x38bdf8, 0.8);
-    luzCiano.position.set(2, -1, 2);
-    scene.add(luzCiano);
-
-    // Constrói o símbolo </> como barras 3D, a partir das mesmas
-    // coordenadas usadas no logótipo SVG plano (viewBox 0 0 80 80).
-    var grupo = new THREE.Group();
-    var material = new THREE.MeshStandardMaterial({ color: 0xffffff, metalness: 0.25, roughness: 0.35 });
-    var espessura = 0.16;
-
-    function paraCena(x, y) { return [ (x - 40) / 40, -(y - 40) / 40 ]; }
-
-    function adicionarBarra(x1, y1, x2, y2) {
-      var p1 = paraCena(x1, y1), p2 = paraCena(x2, y2);
-      var dx = p2[0] - p1[0], dy = p2[1] - p1[1];
-      var comprimento = Math.hypot(dx, dy);
-      var geo = new THREE.BoxGeometry(comprimento + espessura * 0.6, espessura, espessura);
-      var barra = new THREE.Mesh(geo, material);
-      barra.position.set((p1[0] + p2[0]) / 2, (p1[1] + p2[1]) / 2, 0);
-      barra.rotation.z = Math.atan2(dy, dx);
-      grupo.add(barra);
-    }
-
-    adicionarBarra(28, 30, 18, 40);
-    adicionarBarra(18, 40, 28, 50);
-    adicionarBarra(52, 30, 62, 40);
-    adicionarBarra(62, 40, 52, 50);
-    adicionarBarra(44, 25, 36, 55);
-
-    grupo.scale.set(1.15, 1.15, 1.15);
-    scene.add(grupo);
-
-    grupo.rotation.x = -0.15;
-
-    var relogio = 0;
-    function animar() {
-      if (!reduzirMovimento) {
-        relogio += 0.01;
-        grupo.rotation.y = Math.sin(relogio) * 0.9;
-        grupo.rotation.x = -0.15 + Math.sin(relogio * 0.7) * 0.08;
-        requestAnimationFrame(animar);
-      }
-      renderer.render(scene, camera);
-    }
-    animar();
-
-    window.addEventListener('resize', function () {
-      var w = container.clientWidth, h = container.clientHeight;
-      if (!w || !h) return;
-      renderer.setSize(w, h);
-      camera.aspect = w / h;
-      camera.updateProjectionMatrix();
-      if (reduzirMovimento) renderer.render(scene, camera);
-    });
-  })();
 
   // ---------- Formulário de pedido rápido → WhatsApp ----------
   var formPedido = document.getElementById('form-pedido');
